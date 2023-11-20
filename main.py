@@ -3,6 +3,7 @@ import time
 import sys
 import socket
 import queue
+import webbrowser
 
 import dearpygui.dearpygui as dpg
 import numpy as np
@@ -280,13 +281,10 @@ def build_menu_bar():
         tooltip("Save detection results as file at a location")
     
     with dpg.menu(label="Help"):
-        dpg.add_menu_item(label="Manual")
+        dpg.add_menu_item(label="How to use", callback=lambda: webbrowser.open_new_tab('https://github.com/ziamaul/Wastehawk/blob/master/README.md#how-to-use'))
         tooltip("How to use Wastehawk")
-        dpg.add_menu_item(label="Source Code")
+        dpg.add_menu_item(label="Source Code", callback=lambda: webbrowser.open_new_tab('https://github.com/ziamaul/Wastehawk'))
         tooltip("Wastehawk's source code")
-        dpg.add_menu_item(label="Paper")
-        tooltip("Wastehawk extended abstract")
-
     
 def build_view_panels():
     with dpg.table(header_row=False):
